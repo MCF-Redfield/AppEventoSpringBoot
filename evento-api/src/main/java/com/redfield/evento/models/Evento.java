@@ -1,11 +1,14 @@
 package com.redfield.evento.models;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Evento implements Serializable {
@@ -18,11 +21,16 @@ public class Evento implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@Column
 	private String nome;
+	@Column
 	private String local;
+	@Column
 	private String horario;
+	@Column
 	private String data;
-
+	@OneToMany
+	private List<Convidado> convidados;
 	
 	
 	public long getId() {
